@@ -2,16 +2,12 @@ const express = require('express');
 const morgan = require('morgan');
 const http = require('http');
 const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
 const passport = require('passport');
 const session = require('express-session');
 const router = require('./router');
 
 const app = express();
 //Db setup
-mongoose.connect(
-  'mongodb://madhu:Madhukanth)%!!96@ds221631.mlab.com:21631/linkedin-server'
-);
 
 //App setup
 app.use(morgan('combined'));
