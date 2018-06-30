@@ -12,7 +12,7 @@ passport.use(
         'https://secure-reaches-84828.herokuapp.com/auth/linkedin/callback'
     },
     function(token, tokenSecret, profile, done) {
-      return done(null, user);
+      return done(null, profile);
     }
   )
 );
