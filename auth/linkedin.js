@@ -9,7 +9,8 @@ passport.use(
     {
       consumerKey: '81rwb9nl6e7dgn',
       consumerSecret: 'hOJmVsLM3WY5B0g0',
-      callbackURL: 'http://127.0.0.1:3090/auth/linkedin/callback'
+      callbackURL:
+        'https://secure-reaches-84828.herokuapp.com/auth/linkedin/callback'
     },
     function(token, tokenSecret, profile, done) {
       var searchQuery = {

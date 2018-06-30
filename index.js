@@ -9,7 +9,9 @@ const router = require('./router');
 
 const app = express();
 //Db setup
-mongoose.connect('mongodb://localhost/linkedin-sample');
+mongoose.connect(
+  'mongodb://madhu:Madhukanth)%!!96@ds221631.mlab.com:21631/linkedin-server'
+);
 
 //App setup
 app.use(morgan('combined'));
