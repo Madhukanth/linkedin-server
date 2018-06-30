@@ -6,6 +6,6 @@ module.exports = function() {
   });
 
   passport.deserializeUser(function(id, done) {
-    done(null, user);
+    done(null, id);
   });
 };
