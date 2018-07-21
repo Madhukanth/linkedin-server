@@ -13,7 +13,8 @@ module.exports = app => {
         client_secret:
           '5r-6ap-9rLmJQusrpZIVoTSyKXodJvC8-Z7fEeB_9t3lHG4Z-bsrfIeIfekHAKhc',
         code: req.query.code,
-        redirect_uri: 'http://192.168.43.20:3090/auth/linkedin/callback'
+        redirect_uri:
+          'https://secure-reaches-84828.herokuapp.com/auth/linkedin/callback'
       },
       json: true
     };
@@ -22,7 +23,9 @@ module.exports = app => {
       if (error) throw new Error(error);
       var decoded = jwtDecode(body.id_token);
       var details = querystring.stringify(decoded);
-      res.redirect('http://192.168.43.20:3000/profile?' + details);
+      res.redirect(
+        'https://calm-ravine-12452.herokuapp.com/profile?' + details
+      );
     });
   });
 };
