@@ -2,8 +2,6 @@ const express = require('express');
 const morgan = require('morgan');
 const http = require('http');
 const bodyParser = require('body-parser');
-const passport = require('passport');
-const session = require('express-session');
 const router = require('./router');
 
 const app = express();
@@ -12,15 +10,7 @@ const app = express();
 //App setup
 app.use(morgan('combined'));
 app.use(bodyParser.json({ type: '*/*' }));
-app.use(
-  session({
-    secret: 'keyboard cat',
-    resave: true,
-    saveUninitialized: true
-  })
-);
-app.use(passport.initialize());
-app.use(passport.session());
+
 router(app);
 
 //Server setup
