@@ -21,7 +21,8 @@ module.exports = app => {
 
     request(options, function(error, response, body) {
       if (error) throw new Error(error);
-      var jwttoken = querystring.stringify(body.id_token);
+      var decoded = body.id_token;
+      var jwttoken = querystring.stringify(decoded);
       res.redirect(
         'https://calm-ravine-12452.herokuapp.com/profile?' + jwttoken
       );
