@@ -1,9 +1,4 @@
 module.exports = app => {
-  var cors = require('cors');
-  var corsOptions = {
-    origin: 'https://calm-ravine-12452.herokuapp.com',
-    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-  };
   app.get('/auth/linkedin/callback', function(req, res) {
     var request = require('request');
     var jwtDecode = require('jwt-decode');
@@ -33,7 +28,7 @@ module.exports = app => {
     });
   });
 
-  app.post('/auth/linkedin/fetchuser', cors(corsOptions), function(req, res) {
+  app.post('/auth/linkedin/fetchuser', function(req, res) {
     var jwtDecode = require('jwt-decode');
     var token = req.body.token;
     var details = jwtDecode(token);
