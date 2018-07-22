@@ -23,6 +23,7 @@ module.exports = app => {
       if (error) throw new Error(error);
       var decoded = body.id_token;
       var jwttoken = querystring.stringify(decoded);
+      console.log('JWTTOKEN', jwttoken);
       res.redirect(
         'https://calm-ravine-12452.herokuapp.com/profile?' + jwttoken
       );
