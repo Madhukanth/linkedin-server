@@ -32,6 +32,11 @@ module.exports = app => {
     var jwtDecode = require('jwt-decode');
     var token = req.body.token;
     var details = jwtDecode(token);
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header(
+      'Access-Control-Allow-Headers',
+      'Origin, X-Requested-With, Content-Type, Accept'
+    );
     res.json({ details });
   });
 };
