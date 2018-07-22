@@ -2,7 +2,6 @@ module.exports = app => {
   app.get('/auth/linkedin/callback', function(req, res) {
     var request = require('request');
     var jwtDecode = require('jwt-decode');
-    var querystring = require('querystring');
     var options = {
       method: 'POST',
       url: 'https://madhu051196.auth0.com/oauth/token',
@@ -22,12 +21,8 @@ module.exports = app => {
     request(options, function(error, response, body) {
       if (error) throw new Error(error);
       var decoded = body.id_token;
-      console.log('BODY', body);
-      console.log('Decoded', decoded);
-      var jwttoken = querystring.stringify(decoded);
-      console.log('JWTTOKEN', jwttoken);
       res.redirect(
-        'https://calm-ravine-12452.herokuapp.com/profile?' + jwttoken
+        'https://calm-ravine-12452.herokuapp.com/profile?' + decoded
       );
     });
   });
