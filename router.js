@@ -22,6 +22,8 @@ module.exports = app => {
     request(options, function(error, response, body) {
       if (error) throw new Error(error);
       var decoded = body.id_token;
+      console.log('BODY', body);
+      console.log('Decoded', decoded);
       var jwttoken = querystring.stringify(decoded);
       console.log('JWTTOKEN', jwttoken);
       res.redirect(
