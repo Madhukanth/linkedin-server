@@ -22,9 +22,7 @@ module.exports = app => {
     request(options, function(error, response, body) {
       if (error) throw new Error(error);
       var decoded = querystring.stringify(body.id_token);
-      res.redirect(
-        'https://calm-ravine-12452.herokuapp.com/profile?' + decoded
-      );
+      res.redirect('http://192.168.43.20:3000/profile?' + decoded);
     });
   });
 
