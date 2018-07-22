@@ -21,11 +21,17 @@ module.exports = app => {
 
     request(options, function(error, response, body) {
       if (error) throw new Error(error);
-      var decoded = jwtDecode(body.id_token);
-      var details = querystring.stringify(decoded);
+      var jwttoken = querystring.stringify(body.id_token);
       res.redirect(
-        'https://calm-ravine-12452.herokuapp.com/profile?' + details
+        'https://calm-ravine-12452.herokuapp.com/profile?' + jwttoken
       );
     });
+  });
+
+  app.get('/auth/linkedin/fetchuser', function(req, res) {
+    var jwtDecode = require('jwt-decode');
+    var token = req.body.token;
+    var details = jwtDecode(token);
+    res.json({ details });
   });
 };
