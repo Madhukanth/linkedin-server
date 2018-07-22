@@ -21,7 +21,7 @@ module.exports = app => {
 
     request(options, function(error, response, body) {
       if (error) throw new Error(error);
-      var decoded = querystring.stringify(body.id_token);
+      var decoded = body.id_token;
       res.redirect('http://192.168.43.20:3000/profile?' + decoded);
     });
   });
