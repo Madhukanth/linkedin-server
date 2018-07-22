@@ -28,7 +28,7 @@ module.exports = app => {
     });
   });
 
-  app.get('/auth/linkedin/fetchuser', function(req, res) {
+  app.post('/auth/linkedin/fetchuser', function(req, res) {
     var jwtDecode = require('jwt-decode');
     var token = req.body.token;
     var details = jwtDecode(token);
